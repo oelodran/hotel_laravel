@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShowRoomsController;
+use App\Http\Controllers\BookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,8 @@ Route::get('/', function () {
 Route::get('/test', function () {return 'Goodbye';});
 
 Route::get('/rooms', ShowRoomsController::class);
+
+Route::resource('bookings', BookingController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
