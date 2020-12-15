@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="col">
-        <form action="{{ route('bookings.store') }}" method="POST">
+        <form action="{{ route('bookings.update', ['booking' => $booking]) }}" method="POST">
+            @method('PUT')
             @include('bookings.fields')
 
             <div class="form-group row">

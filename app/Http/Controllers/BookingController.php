@@ -66,7 +66,7 @@ class BookingController extends Controller
      */
     public function show(Booking $booking)
     {
-        
+        return view('bookings.show')->with('booking', $booking);
     }
 
     /**
@@ -77,7 +77,14 @@ class BookingController extends Controller
      */
     public function edit(Booking $booking)
     {
-        //
+        $users = DB::table('users')->get()->pluck('name', 'id')->prepend('none');
+        $rooms = DB::table('rooms')->get()->pluck('number', 'id');
+        $bookingsUser = DB::table('bookings_users')->where('booking_id', $booking->id)->first();
+        return view('bookings.edit')
+            ->with('users', $users)
+            ->with('rooms', $rooms)
+            ->with('booking', $booking)
+            ->with('bookingsUser', $bookingsUser);
     }
 
     /**
@@ -89,7 +96,24 @@ class BookingController extends Controller
      */
     public function update(Request $request, Booking $booking)
     {
-        //
+        DB::table('bookings')
+        ->where('id', $booking->id)
+        ->update([
+            'room_id' => $request->input('room_id'),
+            'start' => $request->input('start'),
+            'end' => $request->input('end'),
+            'is_reservation' => $request->input('is_reservation', false),
+            'is_paid' => $request->input('is_paid', false),
+            'notes' => $request->input('notes')
+        ]);
+
+        DB::table('bookings_users')
+        ->where('booking_id', $booking->bookign_id)
+        ->update([
+            'user_id' => $request->input('user_id')
+        ]);
+
+        return redirect()->action([BookingController::class, 'index']);
     }
 
     /**
@@ -100,6 +124,8 @@ class BookingController extends Controller
      */
     public function destroy(Booking $booking)
     {
-        //
+        DB::table('bookings_users')->where('booking_id', $booking->id)->delete();
+        DB::table('bookings')->where('id', $booking->id)->delete();
+        return redirect()->action([BookingController::class, 'index']);
     }
 }

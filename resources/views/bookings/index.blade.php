@@ -34,17 +34,22 @@
                 <td>{{ date('F d, Y', strtotime($booking->created_at)) }}</td>
                 <td class="actions">
                     <a
-{{--                            href="{{ action('BookingController@show', ['booking' => $booking->id]) }}"--}}
+                            href="{{ action([\App\Http\Controllers\BookingController::class, 'show'], ['booking' => $booking->id]) }}"
                             alt="View"
                             title="View">
                         View
                     </a>
                     <a
-{{--                            href="{{ action('BookingController@edit', ['booking' => $booking->id]) }}"--}}
+                            href="{{ action([\App\Http\Controllers\BookingController::class, 'edit'], ['booking' => $booking->id]) }}"
                             alt="Edit"
                             title="Edit">
                         Edit
                     </a>
+                    <form action="{{ action([\App\Http\Controllers\BookingController::class, 'destroy'], ['booking' => $booking->id]) }}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn btn-link" title="delete" value="DELETE">Delete</button>
+                    </form>
                 </td>
             </tr>
         @empty
