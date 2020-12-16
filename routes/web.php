@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Route::get('/test', function () {return 'Goodbye';});
 
-Route::get('/rooms', ShowRoomsController::class);
+Route::get('/rooms/{roomType?}', ShowRoomsController::class);
 
 Route::resource('bookings', BookingController::class);
 
