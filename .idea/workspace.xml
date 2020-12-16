@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b645d4d-3df6-4ff9-9ed0-bf7833064220" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Models/Room.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/RoomFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BookingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BookingController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ShowRoomsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ShowRoomsController.php" afterDir="false" />
@@ -309,12 +311,12 @@
       <workItem from="1607772484823" duration="10781000" />
       <workItem from="1607946689156" duration="6345000" />
       <workItem from="1608019919922" duration="786000" />
-      <workItem from="1608123814234" duration="6657000" />
+      <workItem from="1608123814234" duration="6953000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57448000" />
+    <option name="totallyTimeSpent" value="57744000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="2" width="1378" height="733" extended-state="0" />
